@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Ordem | Transcender</title>
+    <link rel="stylesheet" href="../css/quiz.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gabriela&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="../assets/medoicon.svg">
+</head>
+<body>
+    
+    <div class="fundo">
+        <div class="menu" id="menu">
+            <div class="menu-bar" id="menu-bar" onclick="menuOnClick()">
+              <div id="bar1" class="bar"></div>
+              <div id="bar2" class="bar"></div>
+              <div id="bar3" class="bar"></div>
+            </div>
+            <nav class="nav" id="nav">
+              <ul>
+                <li><a href=""><p>Comunidade</p></a></li>
+                <li><a href="./transcender.html"><p>Transcender</p></a></li>
+                <li><a href="#"><p>Quiz</p></a></li>
+                <li><a href="#"><p>Dashboard</p></a></li>
+              </ul>
+            </nav> 
+          </div>  
+        <div class="menu-bg" id="menu-bg"></div>
+
+        <div class="container" id="inicio">
+            <div class="content">
+                <div class="titulo"><h1>Transcender</h1></div>
+                <div class="conteudo">
+                    <div class="texto"><p>No universo de ordem paranormal, ao chegar a um grande nivel de exposição ao paranormal você pode se conectar a um dos 4 elementos do outro lado, sendo eles <span style="color: red;">sangue</span>, <span style="color: cyan;"> energia</span>, <span style="color: gray ;">morte</span> e <span style="color: gold;">conhecimento</span>, veja qual seria o seu elemento <br><br>Clique no simbolo para começar</p></div>
+                    <img src="../assets/simbolos/transcender.svg" alt="" width="375px" height="375px" onclick="comecar()">
+                    <div class="texto"><p> <span style="color: red;"> Sangue</span>: O Sangue é a entidade do sentimento. Ele busca a intensidade: dor, obsessão, paixão, amor, fome, ódio - tudo que envolve sentir uma emoção extrema agrada a entidade de Sangue. <br> <span style="color: gray;"> Morte</span>: A Morte é a entidade do tempo. Ela busca os momentos vivenciados, distorcendo a percepção egóica da existência de cada indivíduo para seu próprio agrado. <br> <span style="color: gold;"> Conhecimento</span>: O Conhecimento é a entidade da consciência. Descobrir, aprender, conhecer, decifrar. Ter a própria percepção do Outro Lado e suas entidades agrada o elemento de Conhecimento. <br> <span style="color: cyan;"> Energia</span>: A Energia é a entidade do caos. Tudo que não pode ser explicado, o intangível, a anarquia. A constante mudança, o calor e o frio, a luz e as trevas. Tudo que envolve a imprevisibilidade e a transformação agrada a entidade de Energia.</p></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" id="quiz">
+            <div class="cardPergunta" id="pergunta1">
+                <div class="titulo"><h1>1 Pergunta</h1></div>
+                <div class="texto"><p>Como você baseia suas ações ?</p></div>
+                <button onclick="nextC()">Pensando analisando todas as possibilidades buscando o equilibrio</button>
+                <button onclick="nextS()">Agindo de acordo com as emoções no momento</button>
+                <button onclick="nextE()">De forma aleatoria, não tenho um padrão</button>
+                <button onclick="nextM()">Tirando um tempo para pensar sobre aquilo</button>
+            </div>
+
+            <div class="cardPergunta" id="pergunta2">
+                <div class="titulo"><h1>2 Pergunta</h1></div>
+                <div class="texto"><p>O que você menos gosta dessas opções</p></div>
+                <button onclick="nextC()">não gosto de aleatoriedade e mudanças</button>
+                <button onclick="nextS()">não gosto de muito controle e padronização</button>
+                <button onclick="nextE()">não gosto das coisas </button>
+                <button onclick="nextM()">Tirando um tempo para pensar sobre aquilo</button>
+            </div>
+
+            <div class="cardPergunta" id="pergunta3">
+                <div class="titulo"><h1>3 Pergunta</h1></div>
+                <div class="texto"><p>Como você baseia suas ações ?</p></div>
+                <button onclick="nextC()">Pensando analisando todas as possibilidades buscando o equilibrio</button>
+                <button onclick="nextS()">Agindo de acordo com as emoções no momento</button>
+                <button onclick="nextE()">De forma aleatoria, não tenho um padrão</button>
+                <button onclick="nextM()">Tirando um tempo para pensar sobre aquilo</button>
+            </div>
+
+            <div class="cardPergunta" id="pergunta4">
+                <div class="titulo"><h1>4 Pergunta</h1></div>
+                <div class="texto"><p>Como você baseia suas ações ?</p></div>
+                <button onclick="nextC()">Pensando analisando todas as possibilidades buscando o equilibrio</button>
+                <button onclick="nextS()">Agindo de acordo com as emoções no momento</button>
+                <button onclick="nextE()">De forma aleatoria, não tenho um padrão</button>
+                <button onclick="nextM()">Tirando um tempo para pensar sobre aquilo</button>
+            </div>
+
+            <div class="cardPergunta" id="pergunta5">
+                <div class="titulo"><h1>5 Pergunta</h1></div>
+                <div class="texto"><p>Como você baseia suas ações ?</p></div>
+                <button onclick="nextC()">Pensando analisando todas as possibilidades buscando o equilibrio</button>
+                <button onclick="nextS()">Agindo de acordo com as emoções no momento</button>
+                <button onclick="nextE()">De forma aleatoria, não tenho um padrão</button>
+                <button onclick="nextM()">Tirando um tempo para pensar sobre aquilo</button>
+            </div>
+            
+            <div class="container" id="FimS">
+                <div class="content">
+                    <div class="titulo"><h1 style="color: red;">Você é do elemento sangue</h1></div>
+                    <div class="conteudo">     
+                        <div class="texto"><p>Esse elemento está relacionado a emoções extremas, como dor, obsessão, paixão, amor, fome e ódio. As cores que representam o Sangue são tons de vermelho. O Sangue é efetivo contra o elemento de Conhecimento, porque os sentimentos extremos do Sangue superam a razão e a calmaria do Conhecimento, enquanto o elemento de Morte é efetivo contra o Sangue, pois a distorção temporal da Morte arruína a percepção carnal do Sangue.</p></div>
+                        <a href="https://ordemparanormal.fandom.com/wiki/Elementos_do_Outro_Lado#Elemento_de_Sangue"><img src="../assets/simbolos/Sangue 1.svg" alt="" width="375px" height="375px"> </a>
+                        <div class="texto"><p> Possuir uma afinidade com o elemento do Sangue significa ser escolhido pela sua Entidade. Dentre as várias consequências disso, é possível citar: Sentidos aguçados, maior sensibilidade à dor, veias saltadas, olhos vermelhos, dentes e unhas afiadas, intensidade emocional, alteração na estrutura corporal, como no peso, tamanho, musculatura, etc. Quanto maior a afinidade de um ocultista com a Entidade de Sangue, maior sua proximidade de uma criatura bestial.</p></div>
+                    </div>
+                </div>
+                <div class="redirecionar"><p>saiba mais ao clicar na imagem</p></div>
+            </div>
+
+            <div class="container" id="FimM">
+                <div class="content">
+                    <div class="titulo"><h1 style="color: gray ;">Você é do elemento morte</h1></div>
+                    <div class="conteudo">     
+                        <div class="texto"><p>Esse elemento está relacionado à diversas características como espirais, repetição, Lodo Preto e distorção temporal, além de distorcer a percepção egóica da existência de cada indivíduo. As cores que representam esse elemento são preto e tons de cinza. A Morte é efetiva contra o elemento de Sangue, porque a distorção temporal da Morte arruína a percepção carnal do Sangue, enquanto o elemento de Energia é efetivo contra a Morte, pois a transformação da Energia sobrecarrega os efeitos da Morte.</p></div>
+                        <a href="https://ordemparanormal.fandom.com/wiki/Elementos_do_Outro_Lado#Elemento_de_Morte"><img src="../assets/simbolos/Morte 1.svg" alt="" width="375px" height="375px"> </a>
+                        <div class="texto"><p> Possuir uma afinidade ao elemento de Morte significa ser escolhido pela sua Entidade. Dentre as várias consequências disso, é possível citar: alteração na cor de pele, tendo um aspecto mais acinzentado, alteração na cor do cabelo, mudando para tons de preto ou branco, faixas pretas marcadas no rosto, olhos completamente pretos, sangue escurecido, envelhecimento espontâneo, reflexos aprimorados, emagrecimento, alteração na estrutura óssea, alteração na percepção temporal, além de uma personalidade mais fria e apática, tendo uma desafetação em relação ao impacto que a morte pode gerar.</p></div>
+                    </div>
+                </div>
+                <div class="redirecionar"><p>saiba mais ao clicar na imagem</p></div>
+            </div>
+
+            <div class="container" id="FimC">
+                <div class="content">
+                    <div class="titulo"><h1 style="color: gold;">Você é do elemento conhecimento</h1></div>
+                    <div class="conteudo">     
+                        <div class="texto"><p>Esse elemento é caracterizado por descobrir, aprender, conhecer e decifrar, além de estar ligado diretamente aos "Sussurros do Conhecimento". As cores que representam esse elemento são branco e tons de amarelo. O Conhecimento é efetivo contra o elemento de Energia, porque a razão e lógica do Conhecimento reintegram e suprimem o caos da Energia, enquanto o elemento de Sangue é efetivo contra o Conhecimento, pois os sentimentos extremos do Sangue superam a razão e a calmaria do Conhecimento.</p></div>
+                        <a href="https://ordemparanormal.fandom.com/wiki/Elementos_do_Outro_Lado#Elemento_de_Conhecimento"><img src="../assets/simbolos/Conhecimento 1.svg" alt="" width="375px" height="375px"> </a>
+                        <div class="texto"><p>Possuir uma afinidade ao elemento de Conhecimento significa ser escolhido pela sua Entidade. Dentre as várias consequências disso, é possível citar: Olhos amarelos ou esbranquiçados, inscrições na pele, falta de emoções, aura dourada, partes do corpo, como braços, pernas e dedos alongados e finos, ossos fragilizados, desaparecimento de lábios/boca e orelhas, profundas olheiras, além de resultar em uma personalidade mais lógica, estratégica e muitas vezes manipuladora.</p></div>
+                    </div>
+                </div>
+                <div class="redirecionar"><p>saiba mais ao clicar na imagem</p></div>
+            </div>
+
+            <div class="container" id="FimE">
+                <div class="content">
+                    <div class="titulo"><h1 style="color:cyan;">Você é do elemento energia</h1></div>
+                    <div class="conteudo">     
+                        <div class="texto"><p>Esse elemento é caracterizado por tudo que não pode ser explicado, o intangível, a anarquia e pela transformação. Uma das manifestações mais marcantes desse elemento é em uma forma etérea fantasmagórica, descrita como uma matéria que está em constante transformação entre os estados sólido, liquido e gasoso que adquire uma aparência de "chama líquida", nas cores que representam a Energia, sendo elas tons de roxo, azul, ciano, verde e rosa. A Energia é efetiva contra o elemento de Morte, porque a transformação da Energia sobrecarrega os efeitos da Morte.</p></div>
+                        <a href="https://ordemparanormal.fandom.com/wiki/Elementos_do_Outro_Lado#Elemento_de_Energia"><img src="../assets/simbolos/Energia 1.svg" alt="" width="375px" height="375px"> </a>
+                        <div class="texto"><p> Possuir uma afinidade ao elemento de Energia significa ser escolhido por sua Entidade. Dentre as várias consequências disso, é possível citar: olhos multicoloridos, veias brilhando, tiques incontroláveis, tremedeira, crises de ansiedade, hiperatividade, queimaduras, cabelos e pele com cores vibrantes, partes do corpo mesclados com tecnologia ou com objetos metálicos, olhos brilhando no escuro, além de uma personalidade imprevisível, caótica e insana.</p></div>
+                    </div>
+                </div>
+                <div class="redirecionar"><p>saiba mais ao clicar na imagem</p></div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+<script>
+
+function menuOnClick() {
+  document.getElementById("menu-bar").classList.toggle("change");
+  document.getElementById("nav").classList.toggle("change");
+  document.getElementById("menu-bg").classList.toggle("change-bg");
+}
+var energiaCont = 0;
+var sangueCont = 0;
+var morteCont = 0;
+var conhecimentoCont = 0;
+var questao = 0;
+
+function comecar() {
+    var inicio = document.getElementById('inicio');
+    var quiz = document.getElementById('quiz');
+    inicio.style.display = "none";
+    quiz.style.display = "flex";
+}
+
+function nextC() {
+    conhecimentoCont++;
+    questao++;
+    PerguntaAtual();
+}
+
+function nextM() {
+    morteCont++;
+    questao++;
+    PerguntaAtual();
+}
+
+function nextS() {
+    sangueCont++;
+    questao++;
+    PerguntaAtual();
+}
+
+function nextE() {
+    energiaCont++;
+    questao++;
+    PerguntaAtual();
+
+}
+
+function PerguntaAtual() {
+    for (var i = 1; i <= 5; i++) {
+        var perguntaAtual = document.getElementById(`pergunta${i}`);
+        if (i === questao) {
+            perguntaAtual.style.display = "flex";
+        } else {
+            perguntaAtual.style.display = "none";
+        }
+    }
+    if (questao == 6){
+        resultado();
+    }
+}
+
+function resultado() {
+    
+    if(sangueCont > (conhecimentoCont || morteCont || energiaCont)) {
+    FimS.style.display = "flex"
+    }
+
+    if(morteCont > (conhecimentoCont || sangueCont || energiaCont)) {
+    FimM.style.display = "flex"
+    }
+
+    if(conhecimentoCont > (morteCont || sangueCont || energiaCont)) {
+    FimC.style.display = "flex"
+    }
+
+    if(energiaCont > (conhecimentoCont || sangueCont || morteCont)) {
+    FimE.style.display = "flex"
+    }
+}
+
+</script>

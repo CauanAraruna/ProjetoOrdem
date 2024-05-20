@@ -1,0 +1,122 @@
+body {
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.fundo {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background-image: url(../assets/fundoSemSimbolo.svg);
+    background-size: cover;
+    justify-content: center;
+    align-items: center; 
+}
+
+.container {
+    display: flex;
+    height: 90vh;
+    width: 100vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+}
+
+.content {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    height: 50vh;
+    width: 35vw;
+}
+
+.container .content p {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.container .content h1 {
+    color: #ffffff;
+    font-size: 45px;
+    font-weight: 700;
+    font-family: "Gabriela", serif;
+}
+
+.container .content a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.container .content input{
+    width: 275px;
+    height: 25px;
+    border-radius: 15px;
+    font-family: "Gabriela", serif;
+}
+
+.container .content button{
+    width: 139px;
+    height: 25px;
+    border-radius: 15px;
+    font-family: "Gabriela", serif;
+    font-weight: 900;
+}
+
+/* ------ */
+
+
+
+.contentLogin {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    height: 50vh;
+    width: 35vw;
+}
+
+.container .contentLogin p {
+    color: #ffffff;
+    font-size: 27px;
+}
+
+.container .contentLogin h1 {
+    color: #ffffff;
+    font-size: 55px;
+    font-weight: 700;
+    font-family: "Gabriela", serif;
+}
+
+.container .contentLogin a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.container .contentLogin input{
+    width: 275px;
+    height: 25px;
+    border-radius: 15px;
+    font-family: "Gabriela", serif;
+}
+
+.container .contentLogin button{
+    width: 139px;
+    height: 65px;
+    border-radius: 15px;
+    font-family: "Gabriela", serif;
+    font-weight: 900;
+}
+
+.cardErro {
+    display: none;
+    font-family: "Gabriela", serif;
+    background-color: #EEEEEE;
+    color: #A91D3A;
+    width: 20vw;
+    height: 12vh;
+}

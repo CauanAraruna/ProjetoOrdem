@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login Projeto Ordem</title>
+
+    <script src="./js/sessao.js"></script>
+
+    <link rel="shortcut icon" href="./assets/medoicon.svg">
+    <link rel="stylesheet" href="./css/loginCadastro.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gabriela&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="fundo">
+        <div class="container">
+            <div class="contentLogin">
+                <h1>Login</h1>
+                
+                <p>E-mail:</p><input type="text" id="inpEmail" placeholder="Insira seu email"> 
+                <p>Senha:</p><input type="password" id="inpSenha" placeholder="Insira sua senha"> 
+                <br>
+                <button onclick="entrar()">Logar</button>
+                <a href="./cadastro.html">
+                    <p>Cadastre-se aqui</p>
+                </a>
+                <a href="./index.html">
+                    <p>Voltar</p>
+                </a>
+            </div>
+         <div id="cardErro" class="cardErro"></div>
+         <div id="div_aguardar" class="cardErro"></div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+<script>
+
+function entrar() {
+        aguardar();
+
+        var emailVar = inpEmail.value;
+        var senhaVar = inpSenha.value;
+        var senha = inpSenha.value
+
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            cardErro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "./dashboard/transcender.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>

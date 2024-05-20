@@ -1,0 +1,762 @@
+body {
+    margin: 0;
+    overflow-x: hidden;
+}
+
+
+/* HOME */
+
+.fundoHome {
+    position: relative;
+    height: 110vh;
+    width: 100vw;
+    background-image: url(../assets/fundoIndex.svg);
+    background-size: cover;
+    display: flex;
+}
+
+.navbar {
+    display: flex;
+}
+
+.lista{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 100vw;
+    height: 100px;
+    margin-left: -2vw;
+}
+
+.conteudo {
+    display: flex;
+    width: 100vw;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.conteudo a {
+    text-decoration: none;
+    font-family: "Gabriela", serif;
+    color: white;
+    font-size: 22px;
+    transition: 0.75s ease-in-out;
+}
+
+.conteudo a:hover {
+    color: gold;
+    font-size: 25px;
+}
+
+.seta {
+    width: 40px;
+    height: 40px;
+    background-image: url(../assets/seta\ baixo.svg);
+    background-size: contain;
+    position: absolute;
+    left: 50%;
+    margin-left: 10px;
+    transform: translateX(-50%);
+    background-repeat: no-repeat;
+    margin-top: 95vh;
+
+
+    animation-name: setaBaixo;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes setaBaixo {
+    0%{
+        top: 0px;
+    }
+    100%{
+        top: 20px;
+    }
+}
+
+
+
+
+/* PARALAX */
+
+
+
+.paralax{
+    background-image: url(../assets/Paralax\ oquee.svg);
+    min-height: 250px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+
+.paralax h1{
+    font-family: "Gabriela", serif;
+    font-size: 75px;
+    color: white;
+}
+
+
+.paralaxOSNF{
+    background-image: url(../assets/simboloOSNF.svg);
+    min-height: 250px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+
+.paralaxOSNF h1{
+    font-family: "Gabriela", serif;
+    font-size: 75px;
+    color: red;
+}
+
+
+.paralaxMidia{
+    background-image: url(../assets/hqOrdem.svg);
+    min-height: 250px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+
+.paralaxMidia h1 {
+    font-family: "Gabriela", serif;
+    font-size: 75px;
+    color: yellow;
+}
+
+.paralaxGaleria{
+    background-image: url(../assets/reliquias2.svg);
+    min-height: 250px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+
+.paralaxGaleria h1 {
+    font-family: "Gabriela", serif;
+    font-size: 75px;
+    color: chartreuse;
+}
+
+
+.paralaxSobre{
+    background-image: url(../assets/Capa_Livro_de_Regras_de_Ordem_Paranormal_RPG\ 1.svg);
+    min-height: 250px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    position: absolute;
+}
+
+.paralaxSobre h1{
+    font-family: "Gabriela", serif;
+    font-size: 75px;
+    color: white;
+}
+
+/* FUNDO */
+
+
+
+.fundo {
+    position: relative;
+    height: 200vh;
+    width: 100vw;
+    background-image: url(../assets/fundoSemSimbolo.svg);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+/* O QUE É */
+
+
+
+.parte1 .texto {
+    margin-top: 25px;
+    width: 55vw;
+    height: 350px;
+    font-family: "Gabriela", serif;
+    color: white;
+    margin-left: 3.5vw;
+    font-size: 23px;
+    display: flex;
+    align-items: center;
+    line-height: 50px;
+}
+
+.imgCell {
+    background-image: url(../assets/Cellbit\ \(1\).webp);
+    background-position: center;
+    background-size: cover;
+    height: 355px;
+    width: 350px;
+    margin-top: 25px;
+    margin-left: 4vw;
+}
+
+.imgCell p {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: flex-end;
+    height: 100%;
+    font-family: "Gabriela", serif;
+    color: white;
+    font-size: 15px;
+}
+
+.imgEquipe {
+    background-image: url(../assets/Jogadores_em_Calamidade\ 1.svg);
+    background-position: center;
+    background-size: cover;
+    height: 355px;
+    width: 37vw;
+    margin-left: 4vw;
+    margin-top: 10vh;
+}
+
+.parte1 {
+    display: flex;
+}
+
+.parte2 {
+    display: flex;
+    margin-top: 15px;
+}
+
+.parte3 {
+    display: flex;
+    flex-direction: row;
+    margin-top: 7vh;
+}
+
+.parte2 .texto {
+    width: 86vw;
+    height: 350px;
+    font-family: "Gabriela", serif;
+    color: white;
+    font-size: 23px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 3.5vw;
+    line-height: 37px;
+}
+
+.parte3 .texto {
+    width: 43vw;
+    height: 350px;
+    font-family: "Gabriela", serif;
+    color: white;
+    font-size: 23px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 3.5vw;
+    line-height: 50px;
+    margin-top: 30px;
+}
+
+
+
+/* TEMPORADAS */
+
+
+.temporadas .imagens {
+    margin-top: 75px;
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: -15vw;
+}
+
+.temporadas .fundo {
+    height: 245vh;
+    width: 100vw;
+    background-image: url(../assets/fundoSemSimbolo.svg);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+
+.flip-container {
+    width: 300px;
+    height: 200px;
+    perspective: 1000px;
+}
+
+.flipper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+}
+
+.flip-container:hover .flipper {
+    transform: rotateY(180deg);
+}
+
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.front {
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+
+.back {
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: "Gabriela", serif;
+    font-size: 15px;
+    color: white;
+    padding: 10px;
+}
+
+.butoes {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    margin-top: 10vh;
+    margin-right: 5vw;
+}
+
+.butoes button {
+    border-radius: 16px;
+    width: 100px;
+    height: 25px;
+    border-style: none;
+    color: black;
+    font-family: "Gabriela", serif;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+
+
+/* MIDIAS */
+
+
+
+.midias .imagens{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+#img {
+    cursor: pointer;
+}
+
+
+
+/* GALERIA */
+
+
+
+.galeria .fundo {
+    height: 90vh;
+}
+
+.galeria .titulo {
+    display: flex;
+    justify-content: center;
+    font-family: "Gabriela", serif;
+    font-size: 25px;
+    color: white;
+    font-weight: 100;
+}
+
+.galeria .titulo select{
+    height: 55px;
+    font-family: "Gabriela", serif;
+    border-radius: 16px;
+    border-style: none;
+    margin-top: -10px;
+    width: fit-content;
+    background-image: url(../assets/fundoSemSimbolo.svg);
+    color: white;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.galeria .titulo option {
+    background-color: black;
+}
+
+.galeria input{
+    opacity: 0;
+}
+.carousel {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    overflow: hidden; /* Adiciona overflow hidden para evitar que o conteúdo saia do contêiner */
+}
+
+.slides {
+    display: flex; /* Usa flex para alinhar os slides em linha */
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease; /* Adiciona transição para suavizar a mudança de slides */
+}
+
+.slide {
+    min-width: 100%; /* Garante que cada slide ocupe 100% da largura do contêiner */
+    height: 100%;
+    display: flex; /* Usa flex para alinhar a imagem dentro do slide */
+    justify-content: center;
+    align-items: center;
+}
+
+.slide img {
+    width: auto;
+    height: 100%;
+    object-fit: contain; /* Ajusta a imagem para se ajustar dentro do slide */
+}
+
+.navigation {
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.navigation label {
+    width: 20px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin: 10px;
+    cursor: pointer;
+}
+
+/* Esconde os inputs de rádio */
+input[type="radio"] {
+    display: none;
+}
+
+/* Altera a posição dos slides baseado nos inputs de rádio */
+#slide1:checked ~ .slides {
+    transform: translateX(0%);
+}
+#slide2:checked ~ .slides {
+    transform: translateX(-100%);
+}
+#slide4:checked ~ .slides {
+    transform: translateX(-200%);
+}
+#slide5:checked ~ .slides {
+    transform: translateX(-300%);
+}
+#slide6:checked ~ .slides {
+    transform: translateX(-400%);
+}
+#slide7:checked ~ .slides {
+    transform: translateX(-500%);
+}
+#slide8:checked ~ .slides {
+    transform: translateX(-600%);
+}
+#slide9:checked ~ .slides {
+    transform: translateX(-700%);
+}
+#slide10:checked ~ .slides {
+    transform: translateX(-800%);
+}
+
+
+
+
+.carouselA {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    overflow: hidden; /* Adiciona overflow hidden para evitar que o conteúdo saia do contêiner */
+    display: none;
+}
+
+.slidesA {
+    display: flex; /* Usa flex para alinhar os slides em linha */
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease; /* Adiciona transição para suavizar a mudança de slides */
+}
+
+.slideA {
+    min-width: 100%; /* Garante que cada slide ocupe 100% da largura do contêiner */
+    height: 100%;
+    display: flex; /* Usa flex para alinhar a imagem dentro do slide */
+    justify-content: center;
+    align-items: center;
+}
+
+.slideA img {
+    width: auto;
+    height: 100%;
+    object-fit: contain; /* Ajusta a imagem para se ajustar dentro do slide */
+}
+
+.navigationA {
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.navigationA label {
+    width: 20px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin: 10px;
+    cursor: pointer;
+}
+
+/* Esconde os inputs de rádio */
+input[type="radio"] {
+    display: none;
+}
+
+#slide1a:checked ~ .slidesA {
+    transform: translateX(0%);
+}
+#slide2a:checked ~ .slidesA {
+    transform: translateX(-100%);
+}
+#slide4a:checked ~ .slidesA {
+    transform: translateX(-200%);
+}
+#slide5a:checked ~ .slidesA {
+    transform: translateX(-300%);
+}
+#slide6a:checked ~ .slidesA {
+    transform: translateX(-400%);
+}
+#slide7a:checked ~ .slidesA {
+    transform: translateX(-500%);
+}
+#slide8a:checked ~ .slidesA {
+    transform: translateX(-600%);
+}
+#slide9a:checked ~ .slidesA {
+    transform: translateX(-700%);
+}
+#slide10a:checked ~ .slidesA {
+    transform: translateX(-800%);
+}
+
+
+.carouselB {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    overflow: hidden; /* Adiciona overflow hidden para evitar que o conteúdo saia do contêiner */
+    display: none;
+}
+
+.slidesB {
+    display: flex; /* Usa flex para alinhar os slides em linha */
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease; /* Adiciona transição para suavizar a mudança de slides */
+}
+
+.slideB {
+    min-width: 100%; /* Garante que cada slide ocupe 100% da largura do contêiner */
+    height: 100%;
+    display: flex; /* Usa flex para alinhar a imagem dentro do slide */
+    justify-content: center;
+    align-items: center;
+}
+
+.slideB img {
+    width: auto;
+    height: 100%;
+    object-fit: contain; /* Ajusta a imagem para se ajustar dentro do slide */
+}
+
+.navigationB {
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.navigationB label {
+    width: 20px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin: 10px;
+    cursor: pointer;
+}
+
+/* Esconde os inputs de rádio */
+input[type="radio"] {
+    display: none;
+}
+
+#slide1b:checked ~ .slidesB {
+    transform: translateX(0%);
+}
+#slide2b:checked ~ .slidesB {
+    transform: translateX(-100%);
+}
+#slide4b:checked ~ .slidesB {
+    transform: translateX(-200%);
+}
+#slide5b:checked ~ .slidesB {
+    transform: translateX(-300%);
+}
+#slide6b:checked ~ .slidesB {
+    transform: translateX(-400%);
+}
+#slide7b:checked ~ .slidesB {
+    transform: translateX(-500%);
+}
+#slide8b:checked ~ .slidesB {
+    transform: translateX(-600%);
+}
+#slide9b:checked ~ .slidesB {
+    transform: translateX(-700%);
+}
+#slide10b:checked ~ .slidesB {
+    transform: translateX(-800%);
+}
+
+/* sobre mim */
+
+.sobremim .fundo {
+    height: 80vh;
+    margin-top: 38vh;
+}
+
+.sobremim .conteudo{
+    display: flex;
+    align-items: flex-start;
+    margin: 50px;
+}
+
+.sobremim .fundo p{
+    font-family: "Gabriela", serif;
+    font-size: 25px;
+    color: white;
+    margin-left: 25px;
+    margin-right: 10vw;
+}
+
+/* footer */
+
+.footer{
+    width: 100vw;
+    height: 25vh;
+    background-color: #b6afaf;
+    border-top: solid 5px crimson;
+    position: absolute;
+}
+
+.content {
+    margin-top: 25px;
+}
+
+.footer .content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.footer .content .icon{
+    display: flex;
+    flex-direction: column;
+}
+
+.icon {
+    height: 5vh;
+    width: 15vw;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.footer p{
+    font-family: "Gabriela", serif;
+    color: black;
+}
+
+.content input{
+    height: 20px;
+    width: 15vw;
+    border-radius: 16px;
+    text-align: center;
+    border-style: none;
+}
+
+.content button{
+    height: 20px;
+    width: 15vw;
+    border-radius: 16px;
+    border-style: none;
+    font-family: "Gabriela",serif;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.content .mensagem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 50px;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+
+.agoravai {
+    background-image: url(../assets/Capa_Livro_de_Regras_de_Ordem_Paranormal_RPG\ 1.svg);
+    height: 10vh;
+}
