@@ -82,7 +82,7 @@ body{
     z-index: 1;
     width: 0;
     height: 0;
-    margin: 40px 0 65px 65px;
+    margin: 15px 0 35px 35px;
     background: radial-gradient(circle, crimson, crimson);
     opacity: 0.5;
     border-radius: 50%;
@@ -260,4 +260,18 @@ body{
     font-family: 'Gabriela';
     color: white;
     font-size: 18px;
+}
+
+.cardUsuario{
+  width: 15vw;
+  height: 10vh;
+  display: flex;
+  position: absolute;
+  margin-top: 73vh;
+  justify-content: flex-end;
+}
+
+.cardUsuario p{
+  color: #eeeeee;
+  font-family: "Gabriela", serif;
 }

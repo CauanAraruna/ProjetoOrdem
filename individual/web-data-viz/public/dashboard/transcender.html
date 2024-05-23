@@ -22,14 +22,19 @@
             </div>
             <nav class="nav" id="nav">
                 <ul>
-                    <li><a href=""><p>Comunidade</p></a></li>
-                    <li><a href="./transcender.html"><p>Transcender</p></a></li>
-                    <li><a href="./quiz.html"><p>Quiz</p></a></li>
-                    <li><a href="./dashboard.html"><p>Dashboard</p></a></li>
+                    <li><a href="./mural.html">Comunidade</a></li>
+                    <li><a href="./transcender.html">Transcender</a></li>
+                    <li><a href="./dashboard.html">Dashboard</a></li>
+                    <li><a href="./jogo.html">Advinhe</a></li>
                     <li><a href="../index.html">Sair</a></li>
                   </ul>
             </nav> 
+            <div class="cardUsuario">
+                <img src="" alt="">
+                <p>Seja bem vindo, ‎  <span class="idUsuario" id="idUsuario"></span></p>
+            </div>
           </div>  
+          
         <div class="menu-bg" id="menu-bg"></div>
 
         <div class="container" id="inicio">
@@ -145,6 +150,9 @@
 
 <script>
 
+idUsuario.innerHTML = `  ${sessionStorage.NOME_USUARIO}`
+
+
 function menuOnClick() {
   document.getElementById("menu-bar").classList.toggle("change");
   document.getElementById("nav").classList.toggle("change");
@@ -212,10 +220,10 @@ function elementoP() {
     if(sangueCont > (conhecimentoCont || morteCont || energiaCont)) {
     FimS.style.display = "flex"
     elemento = 'sangue'
-    } else if(morteCont > (conhecimentoCont || sangueCont || energiaCont)) {
+    } else if(conhecimentoCont > (morteCont || sangueCont || energiaCont)) {
     FimM.style.display = "flex"
     elemento = 'morte'
-    } else if(conhecimentoCont > (morteCont || sangueCont || energiaCont)) {
+    } else if(morteCont > (conhecimentoCont || sangueCont || energiaCont)) {
     FimC.style.display = "flex"
     elemento = 'conhecimento'
     } else if(energiaCont > (conhecimentoCont || sangueCont || morteCont)) {
