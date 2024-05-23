@@ -741,12 +741,18 @@ input[type="radio"] {
     height: 20px;
     width: 15vw;
     border-radius: 16px;
-    border-style: none;
+    border-style: 1px;
+    border-color: #A91D3A;
     font-family: "Gabriela",serif;
     font-size: 15px;
     margin-top: 5px;
+    cursor: pointer;
+    text-align: center;
 }
 
+.content button p{
+    margin-top: -2px;
+}
 .content .mensagem {
     display: flex;
     flex-direction: column;

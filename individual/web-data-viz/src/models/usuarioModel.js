@@ -22,7 +22,30 @@ function cadastrar(nome, email, senha) {
     return database.executar(instrucaoSql);
 }
 
+
+function elementoP(id, elemento) {
+    console.log()
+    var instrucaoSql = `
+        update usuario set elemento = '${elemento}' where id = ${id};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql)
+
+}
+
+function mensagemHome(msg) {
+    console.log()
+    var instrucaoSql = `
+        insert into mensagemHome values (default, '${msg}');
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql)
+    
+}
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    elementoP,
+    mensagemHome
 };

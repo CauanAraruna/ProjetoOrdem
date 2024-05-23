@@ -82,7 +82,59 @@ function cadastrar(req, res) {
     }
 }
 
+function elementoP(req, res) {
+    var elemento = req.body.elementoServer
+    var id = req.body.idServer
+
+    if (elemento == undefined) {
+        res.status(400).send("Seu elemento está undefined!");
+    } else { 
+        
+        usuarioModel.elementoP(id, elemento)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+                console.log(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+    
+}
+
+function mensagemHome(req, res){
+    var msg = req.body.mensagemServer
+
+    usuarioModel.mensagemHome(msg)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+                console.log(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    elementoP,
+    mensagemHome
 }

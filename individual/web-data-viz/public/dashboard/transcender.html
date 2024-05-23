@@ -21,12 +21,13 @@
               <div id="bar3" class="bar"></div>
             </div>
             <nav class="nav" id="nav">
-              <ul>
-                <li><a href=""><p>Comunidade</p></a></li>
-                <li><a href="./transcender.html"><p>Transcender</p></a></li>
-                <li><a href="#"><p>Quiz</p></a></li>
-                <li><a href="#"><p>Dashboard</p></a></li>
-              </ul>
+                <ul>
+                    <li><a href=""><p>Comunidade</p></a></li>
+                    <li><a href="./transcender.html"><p>Transcender</p></a></li>
+                    <li><a href="./quiz.html"><p>Quiz</p></a></li>
+                    <li><a href="./dashboard.html"><p>Dashboard</p></a></li>
+                    <li><a href="../index.html">Sair</a></li>
+                  </ul>
             </nav> 
           </div>  
         <div class="menu-bg" id="menu-bg"></div>
@@ -153,7 +154,12 @@ var energiaCont = 0;
 var sangueCont = 0;
 var morteCont = 0;
 var conhecimentoCont = 0;
+
+
+
 var questao = 0;
+var elemento = ''
+var id = sessionStorage.ID_USUARIO
 
 function comecar() {
     var inicio = document.getElementById('inicio');
@@ -197,27 +203,40 @@ function PerguntaAtual() {
         }
     }
     if (questao == 6){
-        resultado();
+        elementoP();
     }
 }
 
-function resultado() {
+function elementoP() {
     
     if(sangueCont > (conhecimentoCont || morteCont || energiaCont)) {
     FimS.style.display = "flex"
-    }
-
-    if(morteCont > (conhecimentoCont || sangueCont || energiaCont)) {
+    elemento = 'sangue'
+    } else if(morteCont > (conhecimentoCont || sangueCont || energiaCont)) {
     FimM.style.display = "flex"
-    }
-
-    if(conhecimentoCont > (morteCont || sangueCont || energiaCont)) {
+    elemento = 'morte'
+    } else if(conhecimentoCont > (morteCont || sangueCont || energiaCont)) {
     FimC.style.display = "flex"
+    elemento = 'conhecimento'
+    } else if(energiaCont > (conhecimentoCont || sangueCont || morteCont)) {
+    FimE.style.display = "flex"
+    elemento = 'energia'
     }
 
-    if(energiaCont > (conhecimentoCont || sangueCont || morteCont)) {
-    FimE.style.display = "flex"
-    }
+    console.log(elemento, id)
+
+    fetch("/usuarios/elementoP", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        idServer: id,
+        elementoServer: elemento
+      }),
+    })
 }
 
 </script>

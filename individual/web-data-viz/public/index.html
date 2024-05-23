@@ -490,7 +490,7 @@
       <p>cauan.araruna@sptech.school</p>
     </div>
     <div class="mensagem">
-      <input type="text" id="Mensagem" placeholder="Escreva para o DEV"> <button>Enviar</button>
+      <input type="text" id="inpMensagem" placeholder="Escreva para o DEV"> <button onclick="mensagemHome()"><p> Enviar</p></button> <p id="msgEnviada" style="display: none;">Mensagem Enviada</p>
     </div>
   </div>
 </div>
@@ -503,10 +503,30 @@
 
 <script>
 
-  function exibir() {
+function mensagemHome() {
+    var msg = inpMensagem.value
 
+    console.log(msg)
+
+    fetch("/usuarios/mensagemHome", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        mensagemServer: msg
+      }),
+    })
+
+    msgEnviada.style.display = "block"
+
+    setTimeout(() => {
+    msgEnviada.style.display = "none"      
+    }, 4000); 
+    
   }
-
 
 
   function Setorgaleria() {
