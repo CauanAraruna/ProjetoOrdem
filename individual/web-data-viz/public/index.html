@@ -17,7 +17,7 @@
   <link rel="shortcut icon" href="./assets/medoicon.svg">
 </head>
 
-<body style="background-color: #0b0101;">
+<body style="background-color: #0b0101;" onload="verificar()">
 
   <!-- home  -->
 
@@ -43,8 +43,7 @@
           <a href="#sobre">
             <p>Sobre Mim</p>
           </a>
-          <a href="./login.html">
-            <p>Comunidade</p>
+          <a id="navMudanca">
           </a>
         </div>
       </ul>
@@ -502,6 +501,14 @@
 </html>
 
 <script>
+
+function verificar() {
+  if (sessionStorage.ID_USUARIO >= 0) {
+    navMudanca.innerHTML = `<a href="./dashboard/mural.html"><p>Comunidade</p></a>`;
+  } else {
+    navMudanca.innerHTML = `<a href="login.html"><p>Login</p></a>`
+  }
+}
 
 function mensagemHome() {
     var msg = inpMensagem.value

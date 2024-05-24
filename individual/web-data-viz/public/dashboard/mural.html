@@ -29,12 +29,12 @@
             </div>
             <nav class="nav" id="nav">
                 <ul>
-                    <li><a href="./comunidade.html">Comunidade</a></li>
+                    <li><a href="./mural.html">Comunidade</a></li>
                     <li><a href="./transcender.html">Transcender</a></li>
                     <li><a href="./dashboard.html">Dashboard</a></li>
                     <li><a href="./jogo.html">Advinhe</a></li>
                     <li><a href="../index.html">Sair</a></li>
-                </ul>
+                  </ul>
             </nav>
             <div class="cardUsuario">
                 <img src="" alt="">
@@ -105,15 +105,14 @@
 
 <script>
 
-    idUsuario.innerHTML = `  ${sessionStorage.NOME_USUARIO}`
+idUsuario.innerHTML = `  ${sessionStorage.NOME_USUARIO}`
 
 
-    function menuOnClick() {
-        document.getElementById("menu-bar").classList.toggle("change");
-        document.getElementById("nav").classList.toggle("change");
-        document.getElementById("menu-bg").classList.toggle("change-bg");
-    }
-
+function menuOnClick() {
+  document.getElementById("menu-bar").classList.toggle("change");
+  document.getElementById("nav").classList.toggle("change");
+  document.getElementById("menu-bg").classList.toggle("change-bg");
+}
 
     function limparFormulario() {
         document.getElementById("form_postagem").reset();
@@ -216,11 +215,11 @@
                         var btnDeletar = document.createElement("button");
 
 
-                        spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";
-                        spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
-                        spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
-                        divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
-                        btnEditar.innerHTML = "Editar";
+                        // spanID.innerHTML = ` <span class="Mensagem"> <b> ID: </b>  ${publicacao.idAviso}  </span>`;
+                        spanTitulo.innerHTML = `<span class="Mensagem"> <b> Título: </b>   ${publicacao.titulo} </span>`;
+                        spanNome.innerHTML = `<span class="Mensagem"> <b> Autor: </b> ${publicacao.nome} </span> <br>`;
+                        divDescricao.innerHTML = `<span class="Mensagem"> <b> Mensagem: </b> ${publicacao.descricao} </span>`;
+                        // btnEditar.innerHTML = "Editar"; desejavel
                         btnDeletar.innerHTML = "Deletar";
 
                         divPublicacao.className = "publicacao";
@@ -244,7 +243,7 @@
                         divPublicacao.appendChild(spanTitulo);
                         divPublicacao.appendChild(divDescricao);
                         divPublicacao.appendChild(divButtons);
-                        divButtons.appendChild(btnEditar);
+                        // divButtons.appendChild(btnEditar);
                         divButtons.appendChild(btnDeletar);
                         feed.appendChild(divPublicacao);
                     }

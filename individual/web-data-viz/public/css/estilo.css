@@ -16,7 +16,7 @@ body{
 }
 
 .menu {
-  z-index: 2;
+  z-index: 3;
 }
 
 .menu-bar {
@@ -189,4 +189,11 @@ body{
 .comentarios{
   width: 45vw;
   margin-right: 5vw;
+  display: flex;
+  justify-content: center;
+}
+
+.Mensagem{
+  font-family: "Gabriela", serif;
+  color: #eeeeee;
 }
