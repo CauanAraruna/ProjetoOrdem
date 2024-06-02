@@ -380,10 +380,25 @@ body {
     display: flex;
     justify-content: center;
     margin-top: 30px;
+    align-items: center;
 }
 
-#img {
+.imagemMidia {
     cursor: pointer;
+    transition: transform 0.75s ease-in-out;
+    z-index: 1;
+}
+
+.textoMidia {
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+    position: absolute;
+    transform: translateY(-50%);
+    font-family: "Gabriela", serif;
+    font-size: 20px;
+    color: white;
+    width: 55vw;
+    margin-left: 30vw;
 }
 
 
@@ -668,6 +683,7 @@ input[type="radio"] {
 #slide10b:checked ~ .slidesB {
     transform: translateX(-800%);
 }
+
 
 /* sobre mim */
 

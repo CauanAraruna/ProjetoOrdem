@@ -279,13 +279,16 @@
 
     <div class="fundo" id="midias">
       <div class="imagens">
-        <img src="./assets/hqOSNF.svg" alt="" id="img">
+        <img src="./assets/hqOSNF.svg" alt="" id="imgHQ" class="imagemMidia">
+        <div id="textoHQ" class="textoMidia"><p>Ordem Paranormal tambem conta com 2 HQ'S que adaptam a primeira temporada do RPG e metade da segunda temporada. Ainda esse ano lançara a 3 HQ acabando de adaptar a segunda temporada. <br> Essa adaptação feita para quadrinhos é desenhado por Akila, a historia feita por Fabio Yabu e é lançado pela editora Jambô. </p></div>
       </div>
       <div class="imagens">
-        <img src="./assets/livro ordem.svg" alt="" id="img">
+        <img src="./assets/livro ordem.svg" alt="" id="imgLivro" class="imagemMidia">
+        <div id="textoLivro" class="textoMidia"><p>Ordem Paranormal tambem conta com um livro de regras para se jogar no universo do RPG, contendo regras propias para o mundo dando opções de classes, regras, equipamentos,monstros e outros em cerca de 320 paginas. <br> Além disso ainda nesse ano está lançando um suplemento chamado "sobrevivendo ao horror" com novas coisas para o sistema. <br> O sistema foi lançado em 2022 pela Jambô</p></div>
       </div>
       <div class="imagens">
-        <img src="./assets/enigmadomedo.svg" alt="" id="img">
+        <img src="./assets/imgJogo.webp" alt="" id="imgJogo" class="imagemMidia" style="width: 222px;">
+        <div id="textoJogo" class="textoMidia"><p>Ordem Paranormal tambem conta com um jogo que sera lançado ainda esse ano em diversas plataformas pela Dumativa, esse jogo é de Investigação e Suspense em Pixel Art/3D.</p></div>
       </div>
     </div>
   </div>
@@ -419,6 +422,7 @@
         <input type="radio" name="carouselB" id="slide5b">
         <input type="radio" name="carouselB" id="slide6b">
         <input type="radio" name="carouselB" id="slide7b">
+        <input type="radio" name="carouselB" id="slide8b">
         <div class="slidesB">
           <div class="slideB">
             <img src="./assets/momento/momento1.svg" alt="Slide 1b">
@@ -438,6 +442,9 @@
           <div class="slideB">
             <img src="./assets/momento/momento6.svg" alt="Slide 7b">
           </div>
+          <div class="slideB">
+            <img src="./assets/kian.jpg" alt="Slide 7b">
+          </div>
         </div>
         <div class="navigationA">
           <label for="slide1b"></label>
@@ -446,6 +453,7 @@
           <label for="slide5b"></label>
           <label for="slide6b"></label>
           <label for="slide7b"></label>
+          <label for="slide8b"></label>
         </div>
       </div>
     </div>
@@ -501,6 +509,37 @@
 </html>
 
 <script>
+
+document.getElementById('imgHQ').addEventListener('click', function() {
+    // Move a imagem para a direita
+    this.style.transform = 'translateX(-25vw)'; // Ajuste conforme necessário
+
+    // Exibe o texto
+    var textoHQ = document.getElementById('textoHQ');
+    textoHQ.style.opacity = '1';
+    textoHQ.style.display = 'block';
+});
+
+document.getElementById('imgLivro').addEventListener('click', function() {
+    // Move a imagem para a direita
+    this.style.transform = 'translateX(-25vw)'; // Ajuste conforme necessário
+
+    // Exibe o texto
+    var textoLivro = document.getElementById('textoLivro');
+    textoLivro.style.opacity = '1';
+    textoLivro.style.display = 'block';
+});
+
+
+document.getElementById('imgJogo').addEventListener('click', function() {
+    // Move a imagem para a direita
+    this.style.transform = 'translateX(-25vw)'; // Ajuste conforme necessário
+
+    // Exibe o texto
+    var textoJogo = document.getElementById('textoJogo');
+    textoJogo.style.opacity = '1';
+    textoJogo.style.display = 'block';
+});
 
 function verificar() {
   if (sessionStorage.ID_USUARIO >= 0) {

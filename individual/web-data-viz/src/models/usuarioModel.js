@@ -43,9 +43,26 @@ function mensagemHome(msg) {
     
 }
 
+function pontucao(id, pontos) {
+    
+    var instrucaoSql = `insert into quiz(fkUsuario, pontucao) values (${id}, ${pontos});`
+    
+    return database.executar(instrucaoSql)
+}
+
+function listar() {
+    var instrucaoSql = `
+    SELECT * FROM quiz JOIN usuario ON fkUsuario = id ORDER BY pontucao DESC limit 15;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     autenticar,
     cadastrar,
     elementoP,
-    mensagemHome
+    mensagemHome,
+    pontucao,
+    listar
 };

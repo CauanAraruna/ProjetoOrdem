@@ -18,7 +18,7 @@
         rel="stylesheet">
 </head>
 
-<body onload="validarSessao(), atualizarFeed()" style="background-color: #161618;">
+<body onload="validarSessao(), atualizarFeed(), verificar()" style="background-color: #161618;">
     <div class="fundo">
         
         <div class="menu" id="menu">
@@ -33,17 +33,19 @@
                     <li><a href="./transcender.html">Transcender</a></li>
                     <li><a href="./dashboard.html">Dashboard</a></li>
                     <li><a href="./jogo.html">Advinhe</a></li>
-                    <li><a href="../index.html">Sair</a></li>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html"  onclick="limpar()">Sair da conta</a></li>
                   </ul>
+                </div>
             </nav>
             <div class="cardUsuario">
                 <img src="" alt="">
                 <p>Seja bem vindo, ‎ <span id="b_usuario"></span></p>
-
             </div>
-        </div>
+            
+            <div class="menu-bg" id="menu-bg">
 
-        <div class="menu-bg" id="menu-bg"></div>
+        </div>
 
         <div class="titulo"><h1>Converse com a comunidade</h1></div>
 
@@ -67,37 +69,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- <div class="titulo"><h1>Converse com a comunidade</h1></div>
-
-        <div class="avisos">
-            <div class="container">
-                <div class="titulo"> <h2>Fazer um Post</h2> </div>
-                <div class="div-form">
-                    <form id="form_postagem" method="post" onsubmit="return publicar()">
-                        <label>
-                            Título:
-                            <input name="titulo" id="titulo" maxlength="100" type="text">
-                        </label>
-                        <br>
-                        
-                        <label>
-                            Mensagem (máximo de 250 caracteres):
-                            <br>
-                            <textarea name="descricao" id="textarea_descricao" maxlength="250" rows="5"></textarea>
-                        </label>
-                        <br>
-                    
-                        <button>Enviar</button>
-                    </form>
-                </div>
-            </div>
-            <h1>Mural de Avisos</h1>
-            <div class="div-results">
-                <div id="feed_container" class="feed-container">
-                </div>
-            </div>
-        </div> -->
     </div>
 </body>
 
@@ -107,11 +78,21 @@
 
 idUsuario.innerHTML = `  ${sessionStorage.NOME_USUARIO}`
 
+function verificar() {
+        if (sessionStorage.ID_USUARIO <= 0 || sessionStorage.NOME_USUARIO == undefined) {
+            window.location = "../login.html";
+        };
+    }
 
 function menuOnClick() {
   document.getElementById("menu-bar").classList.toggle("change");
   document.getElementById("nav").classList.toggle("change");
   document.getElementById("menu-bg").classList.toggle("change-bg");
+}
+
+
+function limpar() {
+    sessionStorage.ID_USUARIO = -1
 }
 
     function limparFormulario() {
@@ -154,36 +135,28 @@ function menuOnClick() {
         return false;
 
     }
-
-    function editar(idAviso) {
-        sessionStorage.ID_POSTAGEM_EDITANDO = idAviso;
-        console.log("cliquei em editar - " + idAviso);
-        window.alert("Você será redirecionado à página de edição do aviso de id número: " + idAviso);
-        window.location = "/dashboard/edicao-aviso.html"
-
-    }
-
     function deletar(idAviso) {
-        console.log("Criar função de apagar post escolhido - ID" + idAviso);
-        fetch(`/avisos/deletar/${idAviso}`, {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        }).then(function (resposta) {
+    console.log("Ativando a função de exclusão...");
 
-            if (resposta.ok) {
-                window.alert("Post deletado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
-                window.location = "/dashboard/mural.html"
-            } else if (resposta.status == 404) {
-                window.alert("Deu 404!");
-            } else {
-                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-        });
-    }
+        fetch(`/avisos/deletar/${idAviso}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(function (resposta) {
+        if (resposta.ok) {
+            window.alert("Post deletado com sucesso pelo usuário de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
+            window.location = "/dashboard/mural.html";
+            
+        } else if (resposta.status == 404) {
+            window.alert("Erro 404 - Aviso não encontrado!");
+        } else {
+            throw ("Houve um erro ao tentar excluir a publicação! Código da resposta: " + resposta.status);
+        }
+    }).catch(function (erro) {
+        console.log(`#ERRO: ${erro}`);
+    });
+}
 
     function atualizarFeed() {
         fetch("/avisos/listar").then(function (resposta) {
@@ -218,9 +191,9 @@ function menuOnClick() {
                         // spanID.innerHTML = ` <span class="Mensagem"> <b> ID: </b>  ${publicacao.idAviso}  </span>`;
                         spanTitulo.innerHTML = `<span class="Mensagem"> <b> Título: </b>   ${publicacao.titulo} </span>`;
                         spanNome.innerHTML = `<span class="Mensagem"> <b> Autor: </b> ${publicacao.nome} </span> <br>`;
-                        divDescricao.innerHTML = `<span class="Mensagem"> <b> Mensagem: </b> ${publicacao.descricao} </span>`;
+                        divDescricao.innerHTML = `<span class="Mensagem"> <b> Mensagem: </b> ${publicacao.descricao} </span> <br> <br> <br>`;
                         // btnEditar.innerHTML = "Editar"; desejavel
-                        btnDeletar.innerHTML = "Deletar";
+                        // btnDeletar.innerHTML = "Deletar";
 
                         divPublicacao.className = "publicacao";
                         spanTitulo.id = "inputNumero" + publicacao.idAviso;
@@ -244,7 +217,7 @@ function menuOnClick() {
                         divPublicacao.appendChild(divDescricao);
                         divPublicacao.appendChild(divButtons);
                         // divButtons.appendChild(btnEditar);
-                        divButtons.appendChild(btnDeletar);
+                        // divButtons.appendChild(btnDeletar);
                         feed.appendChild(divPublicacao);
                     }
 

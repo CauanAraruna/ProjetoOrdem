@@ -119,159 +119,153 @@ body{
     display: flex;
     height: 90vh;
     width: 90vw;
-}
-
-.titulo {
-    font-family: "Gabriela", serif;
-    text-align: center;
-    font-size: 30px;
-}
-
-#inicio .titulo{
-    color: white;
-}
-
-.texto {
-    font-family: "Gabriela", serif;
-    width: 30vw;
-}
-
-#inicio .texto{
-    color: white;
-}
-
-.texto span{
-    font-weight: bold;
-}
-
-.conteudo {
-    display: flex;
-    justify-content: space-around;
-
-}
-
-#quiz {
-    display: none;
-    justify-content: center;
     align-items: center;
-    text-align: center;
-}
-
-.cardPergunta {
-    display: flex;
-    height: 75vh;
-    width: 75vw;
-    background-color: #eeeeee7e;
     justify-content: center;
-    flex-direction: column;
-    align-items: center;
-} 
-
-#quiz .titulo{
-    color: #A91D3A;
 }
 
-.cardPergunta button{
-    width: 40vw;
-    height: 25px;
-    margin-top: 3px;
-    border-radius: 16px;
-    background-color: #A91D3A;
-    color: #EEEEEE;
-    font-size: 14px;
-    transition: 0.8s ease-in-out;
-}
-
-.cardPergunta button:hover{
-    scale: 1.1;
-    font-size: 17px; 
-}
-
-#quiz .texto{
-    color: #A91D3A;
-    font-size: 20px;
-}
-
-#pergunta2{
-    display: none;
-}
-
-#pergunta3{
-    display: none;
-}
-
-#pergunta4{
-    display: none;
-}
-
-#pergunta5{
-    display: none;
-}
-
-#FimS{
-    display: none;
-    margin-left: 20px;
-}
-
-#FimM{
-    display: none;
-    margin-left: 20px;
-}
-
-#FimC{
-    display: none;
-    margin-left: 20px;
-}
-
-#FimE{
-    display: none;
-    margin-left: 20px;
-}
-
-#FimS .texto{
-    color: whitesmoke;
-    width: 30vw;
-    height: 90vh;
-}
-
-#FimM .texto{
-    color: whitesmoke;
-    width: 30vw;
-    height: 90vh;
-}
-
-#FimE .texto{
-    color: whitesmoke;
-    width: 30vw;
-    height: 90vh;
-}
-
-#FimC .texto{
-    color: whitesmoke;
-    width: 30vw;
-    height: 90vh;
-}
-
-.redirecionar{
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-    margin-left: -54vw;
-    font-family: 'Gabriela';
-    color: white;
-    font-size: 18px;
-}
 
 .cardUsuario{
-  width: 15vw;
-  height: 10vh;
-  display: flex;
-  position: absolute;
-  margin-top: 73vh;
-  justify-content: flex-end;
+    width: 15vw;
+    height: 10vh;
+    display: flex;
+    position: absolute;
+    margin-top: 73vh;
+    justify-content: flex-end;
+  }
+  
+  .cardUsuario p{
+    color: #eeeeee;
+    font-family: "Gabriela", serif;
+  }
+  
+  
+  
+  .comeco {
+    width: 75vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .titulo {
+    display: flex;
+    color: white;
+    font-family: "Gabriela", serif;
+    justify-content: center;
+
+  }
+
+  .comeco .titulo {
+    font-size: 35px;
+  }
+
+  .texto {
+    font-family: "Gabriela", serif;
+    color: white;
+    margin: 10px;
+    text-align: center;
+  }
+
+  .comeco .texto {
+    font-size: 20px;
+  }
+
+  .butao button{
+    border-radius: 16px;
+    font-family: "Gabriela";
+    border-style: none;
+    color: #A91D3A;
+    font-weight: bolder;
+    width: 100px;
+    height: 30px;
+    transition: 0.5s ease-in-out;
+  }
+  
+    .butao button:hover {
+    scale: 1.15;
+  }
+
+  .perguntas {
+    display: none;
+  }
+
+  .butaoPerg button{
+    border-radius: 16px;
+    font-family: "Gabriela";
+    border-style: none;
+    color: #A91D3A;
+    font-weight: bolder;
+    width: 100px;
+    height: 30px;
+    transition: 0.5s ease-in-out;
+  }
+
+  .butaoPerg button:hover{
+    scale: 1.15
+  }
+
+  
+.perguntas{
+  color: white;
+  text-align: center;
+  font-family: "Gabriela";
+  height: 75vh;
+    width: 75vw;
+    background-color: #eeeeee7e;
 }
 
-.cardUsuario p{
-  color: #eeeeee;
+#pergunta {
+  /* font-size: 15px;
+  margin-bottom: 20px;
+  color: white; */
   font-family: "Gabriela", serif;
+  font-size: 22px;
+  color: crimson;
+  margin-top: 25vh;
+}
+
+#respostas {
+  display: flex;
+  flex-direction: column;
+  font-family: "Gabriela", serif;
+  margin-top: 15px;
+  
+  }
+
+
+/* Estilização do fim do quiz */
+.fim {
+    display: none;
+    font-size: 17px;
+    font-family: "Gabriela", serif;
+    color: white;
+}
+
+.fim p{
+  text-align: center;
+}
+
+
+.fim .butao {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.fim .butao button{
+  height: 45px;
+  width: 125px;
+}
+
+#respostas butaoPerg{
+  transition: ease-in-out;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+#respostas butaoPerg:hover{
+  scale: 1.1;
+  color: #A91D3A;
 }

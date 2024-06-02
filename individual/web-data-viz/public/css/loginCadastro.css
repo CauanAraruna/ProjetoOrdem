@@ -53,6 +53,7 @@ body {
 .container .content input{
     width: 275px;
     height: 25px;
+    font-size: 18px;
     border-radius: 15px;
     font-family: "Gabriela", serif;
 }
@@ -60,9 +61,15 @@ body {
 .container .content button{
     width: 139px;
     height: 25px;
+    font-size: 18px;
     border-radius: 15px;
     font-family: "Gabriela", serif;
     font-weight: 900;
+    transition: ease-in-out;
+}
+
+.container .content button:hover{
+    scale: 1.1;
 }
 
 /* ------ */
@@ -100,6 +107,7 @@ body {
 .container .contentLogin input{
     width: 275px;
     height: 25px;
+    font-size: 18px;
     border-radius: 15px;
     font-family: "Gabriela", serif;
 }
@@ -107,6 +115,7 @@ body {
 .container .contentLogin button{
     width: 139px;
     height: 65px;
+    font-size: 18px;
     border-radius: 15px;
     font-family: "Gabriela", serif;
     font-weight: 900;
@@ -121,4 +130,8 @@ body {
     height: 12vh;
     margin-left: -45vw;
     text-align: center;
+}
+
+.container .contentLogin button:hover{
+    scale: 1.1;
 }

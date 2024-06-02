@@ -5,13 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto Ordem | Transcender</title>
-    <link rel="stylesheet" href="../css/quiz.css">
+    <link rel="stylesheet" href="../css/transcender.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gabriela&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="../assets/medoicon.svg">
+    <script src="../js/sessao.js"></script>
 </head>
-<body>
+<body onload="verificar()">
     
     <div class="fundo">
         <div class="menu" id="menu">
@@ -26,7 +27,8 @@
                     <li><a href="./transcender.html">Transcender</a></li>
                     <li><a href="./dashboard.html">Dashboard</a></li>
                     <li><a href="./jogo.html">Advinhe</a></li>
-                    <li><a href="../index.html">Sair</a></li>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html"  onclick="limpar()">Sair da conta</a></li>
                   </ul>
             </nav> 
             <div class="cardUsuario">
@@ -64,7 +66,7 @@
                 <button onclick="nextE()">não gosto das coisas com um tempo certo </button>
                 <button onclick="nextS()">não gosto de muito controle e padronização</button>
                 <button onclick="nextC()">não gosto de aleatoriedade e mudanças</button>
-                <button onclick="nextM()">Tirando um tempo para pensar sobre aquilo</button>
+                <button onclick="nextM()">não gosto de descontrole emocional</button>
             </div>
 
             <div class="cardPergunta" id="pergunta3">
@@ -152,12 +154,22 @@
 
 idUsuario.innerHTML = `  ${sessionStorage.NOME_USUARIO}`
 
+function verificar() {
+        if (sessionStorage.ID_USUARIO <= 0 || sessionStorage.NOME_USUARIO == undefined) {
+            window.location = "../login.html";
+        };
+    } 
 
 function menuOnClick() {
   document.getElementById("menu-bar").classList.toggle("change");
   document.getElementById("nav").classList.toggle("change");
   document.getElementById("menu-bg").classList.toggle("change-bg");
 }
+
+function limpar() {
+    sessionStorage.ID_USUARIO = -1
+}
+
 var energiaCont = 0;
 var sangueCont = 0;
 var morteCont = 0;

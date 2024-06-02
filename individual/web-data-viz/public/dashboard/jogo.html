@@ -3,9 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Projeto Ordem | Quiz</title>
+    <link rel="stylesheet" href="../css/jogo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gabriela&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="../assets/medoicon.svg">
+    <script src="../js/sessao.js"></script>
+
 </head>
-<body>
+<body onload="verificar()">
+    
+    <div class="fundo">
+        <div class="menu" id="menu">
+            <div class="menu-bar" id="menu-bar" onclick="menuOnClick()">
+              <div id="bar1" class="bar"></div>
+              <div id="bar2" class="bar"></div>
+              <div id="bar3" class="bar"></div>
+            </div>
+            <nav class="nav" id="nav">
+                <ul>
+                    <li><a href="./mural.html">Comunidade</a></li>
+                    <li><a href="./transcender.html">Transcender</a></li>
+                    <li><a href="./dashboard.html">Dashboard</a></li>
+                    <li><a href="./jogo.html">Advinhe</a></li>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html"  onclick="limpar()">Sair da conta</a></li>
+                  </ul>
+            </nav> 
+            <div class="cardUsuario">
+                <img src="" alt="">
+                <p>Seja bem vindo, ‎  <span class="idUsuario" id="idUsuario"></span></p>
+            </div>
+          </div>  
+
+          <div class="container">
+
+                <div class="comeco" id="comeco">
+                    <div class="titulo"><h1>Quiz</h1></div>
+                    <div class="texto">
+                        Neste quiz, você terá a chance de testar seus conhecimentos sobre o universo de Ordem Paranormal, relembrar detalhes importantes e conhecer um pouco mais sobre. <br> <br> Aperte no botão abaixo para começar
+                    </div>
+                    <div class="butao"><button onclick="comecar()">Começar</button></div>
+                </div>
+    
+                <div class="perguntas" id="perguntas">
+                    <div id="pergunta"></div>
+                    <div id="respostas"></div>
+                </div>
+
+                <div class="fim" id="fim">
+                    <div class="titulo"><h1>Fim do Quiz</h1></div>
+                    <div id="divMsg"></div>
+                    <div class="butao"><a href="./dashboard.html"><button>Ver estatisticas</button></a></div>
+                </div>
+        </div>
+    </div>
     
 </body>
 </html>
+
+<script>
+
+    idUsuario.innerHTML = `  ${sessionStorage.NOME_USUARIO}`
+    var id = sessionStorage.ID_USUARIO
+
+    function menuOnClick() {
+    document.getElementById("menu-bar").classList.toggle("change");
+    document.getElementById("nav").classList.toggle("change");
+    document.getElementById("menu-bg").classList.toggle("change-bg");
+    }
+
+    function verificar() {
+        if (sessionStorage.ID_USUARIO <= 0 || sessionStorage.NOME_USUARIO == undefined) {
+            window.location = "../login.html";
+        };
+    }
+
+    function limpar() {
+    sessionStorage.ID_USUARIO = -1
+}
+
+    var acertos = 0
+    var erros = 0
+    var pontosG = 0
+    var pontosF = 0
+    var bonus = 1000
+    var perguntaAtual = 0
+
+    setInterval(() => {
+        bonus = bonus - 1
+    }, 1000);
+    
+    var perguntas = [
+        {
+            pergunta: "Qual era o apelido de Kian?",
+            respostas: ["Realizador da Calamidade", "O ultimo ocultista", "Realizador da Desconjuração", "Aniquilador do paranormal"],
+            correta: 0
+        },
+        {
+            pergunta: "O que tenebris?",
+            respostas: ["O lugar que não existe", "O outro lado", "A cidade impossivel", "A dimensão fora do tempo"],
+            correta: 2
+        },{
+            pergunta: "Qual ritual foi criada pela Agatha",
+            respostas: ["Odio Incontrolavel", "Descarnar", "Derreter Sangue", "Lamina do medo"],
+            correta: 1
+        },{
+            pergunta: "O que foi tirado de kian na ultima batalha",
+            respostas: ["Sua visão", "Seus equipamentos", "Sua conexão com o outro lado", "Seus rituais"],
+            correta: 3
+        },{
+            pergunta: "Qual era o nome original de Dante e Beatrice",
+            respostas: ["Gaspar e lilian", "Leonardo Gomes e Chizue", "Bessat e Sukkal", "Caio e Agatha"],
+            correta: 0
+        },{
+            pergunta: "O que foi os aniquiladores",
+            respostas: ["Grupo de ocultistas", "Time de elite da ordem", "Organização contra o paranormal", "Uma seita demoniaca"],
+            correta: 1
+        },{
+            pergunta: "Ordem paranormal tem quantas temporadas?",
+            respostas: ["6", "5", "8", "7"],
+            correta: 3
+        },{
+            pergunta: "Qual o nome da equipe de Ordem Paranormal Calamidade",
+            respostas: ["Equipe C", "Calamitosos", "Equipe Abutre", "Last dance"],
+            correta: 2
+        },{
+            pergunta: "Quais as 3 classes de ordem paranormal",
+            respostas: ["Lutador, Investigador e Mago", "Combatente, Especialista e Ocultista", "Guerreiro, Analista e Bruxo", "Lutador, Especialista e Bruxo"],
+            correta: 1
+        },{
+            pergunta: "Qual o nome da espada do Joui",
+            respostas: ["Eresk Gal", "Katana da Morte", "Espada do Verresimo", "Shinokage"],
+            correta: 3
+        }
+
+    ]
+    function comecar() {
+        var comeco = document.getElementById('comeco');
+        var perguntas = document.getElementById('perguntas');
+        comeco.style.display = "none"
+        perguntas.style.display = "block";
+        funcPerguntas()
+    }
+
+    function funcPerguntas(){
+        var perguntaElement = document.getElementById('pergunta');
+        var respostasElement = document.getElementById('respostas');
+        var fim = document.getElementById('fim')
+
+        perguntaElement.textContent = perguntas[perguntaAtual].pergunta;
+        respostasElement.innerHTML = ''
+
+        perguntas[perguntaAtual].respostas.forEach(function (option, index) {
+            var butaoPerg = document.createElement('butaoPerg');
+            butaoPerg.textContent = option;
+            butaoPerg.onclick = function () {
+                if (index == perguntas[perguntaAtual].correta) {
+                    acertos++;
+                    pontosG += 100
+                } else {
+                    erros++
+                    bonus -= 100
+                }
+
+                perguntaAtual++;
+                if (perguntaAtual < perguntas.length) {
+                    funcPerguntas();
+                } else {
+
+                    if(bonus < 0){
+                        bonus = 0
+                    }
+
+                    respostasElement.innerHTML = ''
+                    pontoF = pontosG + bonus
+                    perguntaElement.style.display = "none";
+                    fim.style.display = 'block';
+                    fim.innerHTML += `<p>Você acertou: ${acertos} perguntas e errou: ${erros} <br> <br> Você fez um total de ${pontoF} pontos</p>`;
+                    pontucao();
+                    console.log(pontoF)
+
+                    var Divperguntas = document.getElementById('perguntas');
+                    Divperguntas.style.display = "none";
+                }
+            };
+            respostasElement.appendChild(butaoPerg);
+        });
+    }
+
+    function pontucao() {
+        fetch("/usuarios/pontucao", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        idServer: id,
+        pontucaoServer: pontoF
+      }),
+    })
+}
+
+
+</script>

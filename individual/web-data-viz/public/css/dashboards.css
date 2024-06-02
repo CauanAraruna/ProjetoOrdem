@@ -13,6 +13,7 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column-reverse;
 }
 
 .menu {
@@ -112,4 +113,100 @@ body{
   width: 520px;
   height: 460px;
   transform: translate(-60%,-30%);
+}
+
+
+.cardUsuario{
+  width: 15vw;
+  height: 10vh;
+  display: flex;
+  position: absolute;
+  margin-top: 73vh;
+  justify-content: flex-end;
+}
+
+.cardUsuario p{
+  color: #eeeeee;
+  font-family: "Gabriela", serif;
+}
+
+#myPieChart {
+width: 40vw;
+margin: 0 auto;
+/* height: 350px; */
+padding: 10px;
+color: white;
+background-color: #eeeeee;
+opacity: 0.75;
+border-radius: 16px;
+}
+
+.botoes {
+  display: flex;
+  flex-direction: row;
+  width: 500px;
+  justify-content: space-around;
+  margin-bottom: 25px;
+}
+
+.botoes button{
+  border-radius: 16px;
+  font-family: "Gabriela";
+  border-style: none;
+    color: #A91D3A;
+    font-size: 15px;
+    font-weight: bolder;
+    width: 6vw;
+    height: 35px;
+}
+
+.divQuiz {
+  display: flex;
+  font-family: "Gabriela", serif;
+  border-radius: 16px;
+  background-color: #eeeeee;
+  width: 65vw;
+  height: 73vh;
+  justify-content: center;
+}
+
+.container{
+  display: flex;
+  align-items: center;
+  height: 70vh;
+  margin-top: 25px;
+}
+
+.titulo {
+  text-align: center;
+  width: 65vw;
+  position: absolute;
+}
+
+.posicao {
+  width: 10vw;
+  font-family: "Gabriela", serif;
+  font-size: 23px;
+}
+
+.nome{
+  width: 10vw;
+  font-family: "Gabriela", serif;
+  font-size: 23px;
+}
+
+.pontuacao{
+  width: 10vw;
+  font-family: "Gabriela", serif;
+  font-size: 23px;
+}
+
+.pontos{
+  position: absolute;
+    margin-right: 50vw;
+}
+
+.pontos span{
+  color: crimson;
+  font-weight: bold;
 }

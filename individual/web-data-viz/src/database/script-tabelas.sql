@@ -6,7 +6,6 @@
 comandos para mysql server
 */
 
-
 create database projetoOrdem;
 use projetoOrdem;
 
@@ -22,23 +21,14 @@ CREATE TABLE usuario (
 select * from usuario;
 select * from mensagemHome;
 
+
+
 create table mensagemHome (
 idMensagem int primary key auto_increment,
 mensagem varchar(250));
 
-select * from mensagemHome;
-
-
--- CREATE DATABASE aquatech;
-
--- USE aquatech;
-
--- CREATE TABLE usuario (
--- 	id INT PRIMARY KEY AUTO_INCREMENT,
--- 	nome VARCHAR(50),
--- 	email VARCHAR(50),
--- 	senha VARCHAR(50)
--- );
+select * from aviso;
+select * from quiz;
 
  CREATE TABLE aviso (
  	id INT PRIMARY KEY AUTO_INCREMENT,
@@ -48,27 +38,13 @@ select * from mensagemHome;
  	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
  );
 
--- create table aquario (
--- /* em nossa regra de negócio, um aquario tem apenas um sensor */
--- 	id INT PRIMARY KEY AUTO_INCREMENT,
--- 	descricao VARCHAR(300),
--- 	fk_empresa INT,
--- 	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
--- );
+create table quiz (
+	idQuiz int primary key auto_increment,
+    fkUsuario int,
+    foreign key (fkUsuario) references usuario(id),
+    pontucao int
+);
 
--- /* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
+select u.nome, q.pontucao from quiz as q join usuario as u on q.fkUsuario = u.id order by pontucao desc;
 
--- create table medida (
--- 	id INT PRIMARY KEY AUTO_INCREMENT,
--- 	dht11_umidade DECIMAL,
--- 	dht11_temperatura DECIMAL,
--- 	luminosidade DECIMAL,
--- 	lm35_temperatura DECIMAL,
--- 	chave TINYINT,
--- 	momento DATETIME,
--- 	fk_aquario INT,
--- 	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
--- );
-
--- insert into empresa (razao_social, cnpj) values ('Empresa 1', '00000000000000');
--- insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
+select max(pontucao) from quiz where fkUsuario = 1;

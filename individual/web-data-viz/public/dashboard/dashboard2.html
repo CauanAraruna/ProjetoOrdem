@@ -13,13 +13,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gabriela&display=swap" rel="stylesheet">
-    
+    <!-- scripts do Chart.js - 2022-1 -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
 
-<body onload="verificar()">
+<body onload="verificar(), listar(), puxarPonto()">
     <div class="fundo">
         <div class="menu" id="menu">
             <div class="menu-bar" id="menu-bar" onclick="menuOnClick()">
@@ -45,8 +45,14 @@
 
         <div class="menu-bg" id="menu-bg"></div>
 
-        <div class="divElementos">
-            <canvas id="myPieChart"></canvas>
+        <div class="divQuiz">
+            <div class="titulo"><h1>Top 15</h1></div>
+            <div class="pontos"><p>Sua Pontuação: <span id="pontosUsuario"></span></p></div>
+            <div class="container">
+                <div id="div_resultadoPosicao" class="posicao"></div>
+                <div id="div_resultadoNome" class="nome"></div>
+                <div id="div_resultadoPontuacao" class="pontuacao"></div>
+            </div>
         </div>
 
         <div class="botoes">
@@ -56,6 +62,7 @@
             <a href="./dashboard2.html">
                 <button>Ranking</button>
             </a>
+
         </div>
 
     </div>
@@ -66,87 +73,7 @@
 
 <script>
 
-    var Psangue = Number(0);
-    var Penergia = Number(0);
-    var Pconhecimento = Number(0);
-    var Pmorte = Number(0);
-    var Pnulo = Number(0);
-
-    function pegarElementos() {
-        fetch("/dashboard/pegarElementos", {
-            method: "GET",
-        })
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (data) {
-                console.log(data);
-
-                for (var i = 0; i < data.length; i++) {
-                    if (data[i] == 'sangue') {
-                        Psangue++;
-                    } else if (data[i] == 'morte') {
-                        Pmorte++;
-                    } else if (data[i] == 'energia') {
-                        Penergia++;
-                    } else if (data[i] == 'conhecimento') {
-                        Pconhecimento++;
-                    } else {
-                        Pnulo++;
-                    }
-                }
-
-                myChart.data.datasets[0].data = [Psangue, Penergia, Pconhecimento, Pmorte, Pnulo];
-                
-                myChart.update();
-            })
-            .catch(function (error) {
-                console.log("Ocorreu um erro:", error);
-            });
-    }
-
-
-    var data = {
-        labels: ["Sangue", "Energia", "Conhecimento", "Morte", "Nulo"],
-        datasets: [{
-            data: [],
-            backgroundColor: [
-                '#FF0000',
-                '#9400d3',
-                '#ffd700 ',
-                '#808080',
-                '#eeeeee'
-            ],
-            hoverOffset: 4
-        }]
-    };
-
-
-    var config = {
-        type: 'pie',
-        data: data,
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    position: 'top',
-                },
-                title: {
-                    display: true,
-                    text: 'Quantas pessoas estão conectadas a cada elemento'
-                }
-            }
-        },
-    };
-
-    var myChart = new Chart(
-        document.getElementById('myPieChart'),
-        config
-    );
-
-
-    pegarElementos();
-
+    var id = sessionStorage.ID_USUARIO
 
     idUsuario.innerHTML = `  ${sessionStorage.NOME_USUARIO}`
 
@@ -166,5 +93,50 @@
             window.location = "../login.html";
         };
     }
+    
+    function listar() {
+        fetch("/usuarios/listar", {
+            method: "GET",
+        })
+            .then(function (resposta) {
+                resposta.json().then((resposta) => {
+                    console.log(resposta)
+                    for (var i = 0; i < resposta.length; i++) {
+                        div_resultadoPosicao.innerHTML += `<span>${i + 1}°<span><br>`
+                        div_resultadoNome.innerHTML += `<span>${resposta[i].nome}</span><br>`;
+                        div_resultadoPontuacao.innerHTML += `<span>${resposta[i].pontucao}</span><br>`;
+                    }
+                });
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+    }
+
+    function puxarPonto() {
+    fetch("/dashboard/puxarPonto", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            idServer: id
+        }),
+    })
+    .then(function (resposta) {
+        console.log("ESTOU NO THEN DO puxarponto!");
+        return resposta.json(); // Trata a resposta como JSON
+        console.log(respostaJson)
+    })
+    .then(function (respostaJson) {
+        console.log("Resultado do banco de dados:", respostaJson);
+        var span = document.getElementById("pontosUsuario");
+        span.innerHTML = respostaJson[0].max_pontuacao
+
+    })
+    .catch(function (erro) {
+        console.error("Erro ao obter os pontos do usuário:", erro);
+    });
+}
 
 </script>

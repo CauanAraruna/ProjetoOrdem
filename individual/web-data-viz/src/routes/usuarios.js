@@ -20,5 +20,13 @@ router.post("/mensagemHome", function (req, res) {
     usuarioController.mensagemHome(req, res);
 });
 
+router.post("/pontucao", function (req, res) {
+    usuarioController.pontucao(req, res);
+});
+
+router.get("/listar", function (req, res) {
+    usuarioController.listar(req, res);
+});
+
 
 module.exports = router;

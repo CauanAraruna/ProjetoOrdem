@@ -141,7 +141,6 @@ body{
 
 .conteiner{
   display: flex;
-  z-index: 10;
 }
 
 .postar{
@@ -196,4 +195,18 @@ body{
 .Mensagem{
   font-family: "Gabriela", serif;
   color: #eeeeee;
+}
+
+.postar {
+  z-index: 10;
+}
+
+.comentarios {
+  z-index: 11;
+}
+
+.div-results {
+  height: 40vh; 
+  overflow-y: scroll; 
+  width: 40vw;
 }

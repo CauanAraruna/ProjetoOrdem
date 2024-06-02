@@ -132,9 +132,42 @@ function mensagemHome(req, res){
         );
 }
 
+function pontucao(req, res){
+    var id = req.body.idServer
+    var pontos = req.body.pontucaoServer
+
+    usuarioModel.pontucao(id, pontos)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+                console.log(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function listar(req, res) {
+
+    usuarioModel.listar().then(function (resultado) {
+        res.status(200).json(resultado);
+    }).catch(function (erro) {
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 module.exports = {
     autenticar,
     cadastrar,
     elementoP,
-    mensagemHome
+    mensagemHome,
+    pontucao,
+    listar
 }
