@@ -122,7 +122,7 @@
               <img src="./assets/temporadas/ordem1temp.svg" style="width: 32vw;" />
             </div>
             <div class="back">
-              <img src="./assets/teste.svg" style="width: 32vw;" />
+              <p>Perigosos ocultistas tentam enfraquecer a fina Membrana que nos separa de loucuras e terrores indescritíveis. Para impedi-los, um improvável grupo de investigadores é formado: somente Elizabeth Webber, Thiago Fritz, Daniel Hartmann e Alexsander Kothe poderão impedir que o Medo se espalhe pelo nosso mundo, enquanto tentam manter a existência do paranormal irrevelada.</p>
             </div>
           </div>
         </div>
@@ -474,8 +474,10 @@
     <div class="fundo">
       <div class="conteudo">
         <img src="./assets/cauan.jpg" alt="" height="400px" width="400px">
-        <p>Olá eu sou, Cauan Florentino e desenvolvi esse site para um projeto da faculdade de Analise e Desenvolvimento
-          de Sistemas</p>
+        <p>Olá eu sou Cauan Florentino de Araruna e desenvolvi esse site para um projeto da faculdade de Analise e Desenvolvimento
+          de Sistemas, escolhi o tema de Ordem Paranormal por ser minha obra favorita que me ajudou muito durante a Pandemia e sendo a obra
+        que eu mais consumi durante minha vida.
+        </p>
       </div>
     </div>
   </div>
@@ -511,20 +513,16 @@
 <script>
 
 document.getElementById('imgHQ').addEventListener('click', function() {
-    // Move a imagem para a direita
-    this.style.transform = 'translateX(-25vw)'; // Ajuste conforme necessário
+    this.style.transform = 'translateX(-25vw)'; 
 
-    // Exibe o texto
     var textoHQ = document.getElementById('textoHQ');
     textoHQ.style.opacity = '1';
     textoHQ.style.display = 'block';
 });
 
 document.getElementById('imgLivro').addEventListener('click', function() {
-    // Move a imagem para a direita
-    this.style.transform = 'translateX(-25vw)'; // Ajuste conforme necessário
+    this.style.transform = 'translateX(-25vw)'; 
 
-    // Exibe o texto
     var textoLivro = document.getElementById('textoLivro');
     textoLivro.style.opacity = '1';
     textoLivro.style.display = 'block';
@@ -532,10 +530,8 @@ document.getElementById('imgLivro').addEventListener('click', function() {
 
 
 document.getElementById('imgJogo').addEventListener('click', function() {
-    // Move a imagem para a direita
-    this.style.transform = 'translateX(-25vw)'; // Ajuste conforme necessário
+    this.style.transform = 'translateX(-25vw)'; 
 
-    // Exibe o texto
     var textoJogo = document.getElementById('textoJogo');
     textoJogo.style.opacity = '1';
     textoJogo.style.display = 'block';
@@ -560,8 +556,6 @@ function mensagemHome() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
         mensagemServer: msg
       }),
     })
